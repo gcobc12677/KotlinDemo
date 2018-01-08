@@ -1,1 +1,1 @@
-include ':kotlin01', ':kotlin02', ':kotlin03', ':kotlin04'
+include ':kotlin01', ':kotlin02', ':kotlin03', ':kotlin04', ':kotlin05'
