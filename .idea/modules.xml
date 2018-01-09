@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/kotlin05/kotlin05.iml" filepath="$PROJECT_DIR$/kotlin05/kotlin05.iml" />
       <module fileurl="file://$PROJECT_DIR$/kotlin06/kotlin06.iml" filepath="$PROJECT_DIR$/kotlin06/kotlin06.iml" />
       <module fileurl="file://$PROJECT_DIR$/kotlin07/kotlin07.iml" filepath="$PROJECT_DIR$/kotlin07/kotlin07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlin08/kotlin08.iml" filepath="$PROJECT_DIR$/kotlin08/kotlin08.iml" />
     </modules>
   </component>
 </project>
