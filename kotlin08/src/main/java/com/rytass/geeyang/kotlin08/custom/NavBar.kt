@@ -19,16 +19,39 @@ class NavBar : LinearLayout {
             NavItem("dashboard", R.drawable.dashboard_icon),
             NavItem("notifications", R.drawable.notifications_icon)
     )
+    private var btns = mutableListOf<NavBtn>()
+
+    var index = 0
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, -1)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         orientation = HORIZONTAL
-        items.forEach({ item ->
+        items.forEachIndexed{ index, item ->
             val navItem = NavBtn(context)
             navItem.item = item
+            navItem.tag = index
+            navItem.setOnClickListener { view ->
+                this@NavBar.index = view!!.tag as Int
+                updateUI()
+            }
+            if (index == 0) navItem.isSelected = true
             addView(navItem)
-        })
+            btns.add(navItem)
+        }
+    }
+
+    private fun updateUI() {
+        btns.forEachIndexed { index, navBtn ->
+            when (index) {
+                this@NavBar.index -> {
+                    navBtn.isSelected = true
+                }
+                else -> {
+                    navBtn.isSelected = false
+                }
+            }
+        }
     }
 }
 
