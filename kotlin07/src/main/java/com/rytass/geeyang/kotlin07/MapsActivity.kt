@@ -31,7 +31,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     var locationRequest: LocationRequest? = null
     var location: Location? = null
 
-    var priority = 0
+    private var priority = 0
 
     val REQUEST_CHECK_SETTINGS = 999
 

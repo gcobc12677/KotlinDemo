@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -21,7 +22,7 @@ class NavBar : LinearLayout {
     )
     private var btns = mutableListOf<NavBtn>()
 
-    var index = 0
+    private var index = 0
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, -1)
@@ -33,6 +34,9 @@ class NavBar : LinearLayout {
             navItem.tag = index
             navItem.setOnClickListener { view ->
                 this@NavBar.index = view!!.tag as Int
+
+                if (onItemClickListener != null) onItemClickListener!!.onItemClick(index, navItem)
+
                 updateUI()
             }
             if (index == 0) navItem.isSelected = true
@@ -52,6 +56,11 @@ class NavBar : LinearLayout {
                 }
             }
         }
+    }
+
+    var onItemClickListener: OnItemClickListener? = null
+    interface OnItemClickListener {
+        fun onItemClick(position: Int, view: View)
     }
 }
 
